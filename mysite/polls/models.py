@@ -10,6 +10,8 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+        ## down dunder with crocodile dunderee
+        ## dunder str method specifies what this is to be called in the table in the db.
 
     def was_published_recently(self):
         now = timezone.now()
@@ -28,3 +30,4 @@ class Choice(models.Model):
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        ## method checks if the object was NOT published 'in the future'

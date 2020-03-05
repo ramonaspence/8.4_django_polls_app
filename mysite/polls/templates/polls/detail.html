@@ -5,8 +5,9 @@
 
 <form action="{% url 'polls:vote' question.id %}" method='post'>
   {% csrf_token %}
-  {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{forloop.counter}}"
+  {% for choice in question.choice_set.all %} <!--for loop syntax to loop over ALL choices in question object -->
+    <input type="radio" name="choice" id="choice{{forloop.counter}}" <!--ID to connect to label, 'choice' and the forloop.counter is
+      the index of the forloop, and therefore (in this case) the number of the choice on the poll-->
       value ="{{ choice.id }}">
       <label for="choice{{forloop.counter}}">
         {{choice.choice_text}}
